@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/img/xicon.png" />
+    <title>Xmessenger</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto Mono|Sarpanch"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Catamaran"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="body">
+    <section class="desktop-blocker">
+      <h2>Figma design not avialable</h2>
+    </section>
+
+    <section class="home-contents">
+      <div  class ="home-content-group">
+       <img class ="union" src="img/Union.png" ></img> 
+       <h1 class="xm-para">XMESSENGER</h1>
+        <p class ="sig-para">By CruxDecussata</p>
+        <p class = "connect-para">Connect your wallet to continue.</p>
+        <button id="connect-button-id" class="connect-wallet">Connect Wallet</button>
+        </div>
+      </section>
+
+    <section class="dashboard-plane">
+      <div class="dsh-items">
+       <div class = "welcome-xchian-div">
+        <p class="wel-xchain-para0">WELCOME TO</p>
+         <p class="wel-xchain-para1">XCHAIN</p>
+       </div>
+
+       <div class = "your-running-nodes-div">
+          <div class ="nodes-para">
+            <div class="left-para-div">
+             <p class="left-para0">Your Nodes</p>
+             <p class="left-para1">Currently running nodes</p>
+            </div>
+           <div class="right-para-div">
+            <p class="left-para0_no">0</p>
+            <p class="left-para1 height-mod">on 0 Blockchains</p>
+           </div>
+        </div>
+          <button class="view-nodes-button" >View</button>
+        </div>
+
+        <div class = "all-running-nodes-div">
+          <div class ="nodes-para">
+            <div class="left-para-div">
+             <p class="left-para0">All Nodes</p>
+             <p class="left-para1">Currently running nodes</p>
+            </div>
+           <div class="right-para-div">
+            <p class="left-para0_no">730</p>
+            <p class="left-para1 height-mod">on 8 Blockchains</p>
+           </div>
+        </div>
+        </div>
+        <!--halt capacity region-->
+        <div class = "all-running-nodes-div">
+          <div class ="nodes-para">
+            <div class="left-para-div">
+             <p class="left-para0">Capacity</p>
+            </div>
+           <div class="right-para-div">
+            <p class="left-para0_no">1%</p>
+           </div>
+        </div>
+        </div>
+
+        <div class = "blockchain-running-nodes-div">
+          <div class ="nodes-para">
+            <div class="left-para-div blockchain-para-mod">
+             <p class="left-para0">Blockchain</p>
+               <p class="left-para1">Available chains for development</p>
+               <p class="left-para1 blockchain-para-mod">On 8 blockchains</p>
+            </div>
+           <div class="right-para-div">
+            <img class="coin-group-img" src="img/coin_group.png"></img>
+           </div>
+        </div>
+        </div>
+       <div class="my-rewards-header-div">
+         <p class="my-rewards-para" >My Rewards</p>
+         <p class="treasury-para0">Treasury </p>
+          <p class="treasury-para" >Total value locked</p>
+          <p class="value-para" >1,234,567</p>
+       </div>   
+
+        <div class = "rewards-pending-div">
+          <div class="rewards-pending-para-div">
+            <p class="rewards-pending-para">Rewards Pending Claim</p>
+            <p class = "rewards-pending-value">
+              238
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>  
+    <div class="footer">
+
+    </div>
+    <img class="help-desk-img" src="img/Chat_Room.png" ></img>
+
+    <div class="header-background"></div>
+    <nav id="container-id" class="container">
+      <!--drop down bar-->
+      <section class = "hamburger-plane">
+        <ul class ="xm-ul-menu">
+          <h2>XMessenger</h2>
+          <li class="xm-list-items">
+            Dashboard
+          </li>
+          <li class="xm-list-items">
+            Chat
+          </li>
+          <li class="xm-list-items">
+            Crypto Transfer
+          </li>
+          <li class="xm-list-items">
+            X-Chain
+          </li>
+          <li class="xm-list-items">
+            Nodes
+          </li>
+          <li class="xm-list-items">
+            Treasury
+          </li>
+          <li class="xm-list-items">
+            Validators
+          </li>
+        </ul>
+      </section>
+      <div class="Header-bar">
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <script type="module" src="/js/harmburger.js"></script>
+     <script type="module" src="/js/connectWallet.js"></script>
+  </body>
+</html>
+
