@@ -3,9 +3,18 @@ var data = [];
 var phraseList = [];
 var publicKey = "";
 var privateKey = "";
+import { showLoading, hideLoading } from './loading.js';
+
 document
   .getElementById("connect-button-id")
-  .addEventListener("click", async () => {});
+  .addEventListener("click", async () => {
+    showLoading();
+    try {
+      // Your connection logic here
+    } finally {
+      hideLoading();
+    }
+  });
 
 document
   .getElementById("create-button-id")
