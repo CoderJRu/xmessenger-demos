@@ -16,13 +16,13 @@ export const generateKeypair = async () => {
   console.log("mememonics ", mnemonics);
   const optional_seed = await bip39.mnemonicToSeed(mnemonics);
   const [status, keypair] = await identity.create(optional_seed);
-  const priavteKey = keypair.privateKey;
+  const privateKey = keypair.privateKey;
   const publicKey = keypair.publicKey;
   //console.log("privateKey is ", priavteKey);
   //console.log("mnemonices is ", mnemonics);
   //console.log("publicKey is ", publicKey);
-  await loggingMnemonics(mnemonics);
-  
+  // await loggingMnemonics(mnemonics);
+
   // console.log("keypairs is ", keypair);
   // console.log("status is ", status);
 
@@ -30,22 +30,24 @@ export const generateKeypair = async () => {
     _mnemonics: mnemonics,
     _status: status,
     _keypair: keypair,
+    _publicKey: publicKey,
+    _privateKey: privateKey,
   };
 };
 
-generateKeypair();
+//generateKeypair();
 
 export const loggingMnemonics = async (mnemonics) => {
   const seed = bip39.mnemonicToSeedSync(mnemonics);
   const keypair = DemosWebAuth.keyPairFromMnemonic(seed);
   const [status, message] = await identity.login(keypair.privateKey);
-  const msg = "Hello World!"
-  const [_status, signature] = await identity.sign(msg);
-  console.log("signature is ", signature);
-  await identity.logout()
+  const msg = "Xmessenger is coming!⚔️⚔️⚔️";
+  const bufferMsg = Buffer.from(msg);
+  const [_status, signature] = await identity.sign(bufferMsg);
+  console.log("signature is ", _status);
+  await identity.logout();
 };
 
-
 export const loggingPrivateKey = async (privateKey) => {
-  const [status, message] = await identity.login(privateKey)
-}
+  const [status, message] = await identity.login(privateKey);
+};

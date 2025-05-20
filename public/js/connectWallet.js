@@ -1,19 +1,81 @@
-var provider = null;
-var signer = null;
 export var isConnected = false;
-
-const EtherConnect = async () => {
-  provider = new ethers.providers.Web3Provider(window.ethereum);
-
-  const accounts = await provider.send("eth_requestAccounts", []);
-  console.log(accounts);
-
-  isConnected = true;
-  signer = provider.getSigner();
-};
-
+var data = [];
+var phraseList = [];
+var publicKey = "";
+var privateKey = "";
 document
   .getElementById("connect-button-id")
+  .addEventListener("click", async () => {});
+
+document
+  .getElementById("create-button-id")
   .addEventListener("click", async () => {
-    await EtherConnect();
+    document.getElementById("grey-background-id").removeAttribute("hidden");
+    //
+    var bodyJson = {
+      pass: "00000",
+    };
+    const response = await fetch("/generatePhrases", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bodyJson),
+    });
+    var results = await response.json();
+
+    if (results._res == "error") {
+      return;
+    } else {
+      var yourMnemonics = results._res._mnemonics;
+      var phrases = yourMnemonics.split(" ");
+      phraseList = phrases;
+      privateKey = results._res.privateKey;
+      publicKey = results._res.publicKey;
+      var gridItems = document.querySelectorAll(".phrase-para");
+      // console.log(gridItems);
+      if (gridItems.length > 0) {
+        gridItems.forEach((items, index) => {
+          items.innerHTML = phrases[index];
+        });
+      }
+    }
+  });
+
+document
+  .getElementById("cancel-wallet-button-id")
+  .addEventListener("click", () => {
+    document.getElementById("grey-background-id").setAttribute("hidden", true);
+  });
+
+document
+  .getElementById("create-wallet-button-id")
+  .addEventListener("click", async () => {
+    var bodyJson = {
+      Keypair: {
+        publicKey: publicKey,
+        privateKey: privateKey,
+      },
+    };
+    const response = await fetch("/ceaateAccount", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bodyJson),
+    });
+    var results = await response.json();
+    document.getElementById("grey-background-id").setAttribute("hidden", true);
+    var gridItems = document.querySelectorAll(".phrase-para");
+    // console.log(gridItems);
+    if (gridItems.length > 0) {
+      gridItems.forEach((items, index) => {
+        items.innerHTML = "NULL";
+      });
+    }
+    isConnected = true;
+    if (results._res == "success") {
+      data = results.data;
+      console.log(data);
+    }
   });

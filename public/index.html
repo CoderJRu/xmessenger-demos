@@ -30,12 +30,38 @@
       <div class ="home-div">
          <div class="home-div-content"></div>
       </div>
+      <div hidden id="grey-background-id" class = "greyedBackground">
+      <div class="create-wallet-section">
+        <p class="greyedBackground-header">Create Wallet</p>
+        <div class = "phrase-div grid">
+          <div class="grid-item" ><p class="phrase-para">cloth<p></div>
+          <div class="grid-item" ><p class="phrase-para">table<p></div>
+          <div class="grid-item" ><p class="phrase-para">horse<p></div>
+          <div class="grid-item" ><p class="phrase-para">clown<p></div>
+          <div class="grid-item" ><p class="phrase-para">cup<p></div>
+          <!---->
+          <div class="grid-item" ><p class="phrase-para">pencil<p></div>
+          <div class="grid-item" ><p class="phrase-para">motor<p></div>
+          <div class="grid-item" ><p class="phrase-para">house<p></div>
+          <div class="grid-item" ><p class="phrase-para">roof<p></div>
+          <div class="grid-item" ><p class="phrase-para">marble<p></div>
+          <div class="grid-item" ><p class="phrase-para">ripple</div>
+          <div class="grid-item" ><p class="phrase-para">effect<p></div>
+        </div>
+        <p class="mid-para">keep this phrase safe as this would be required to retrieve your accounts<p>
+        <div class= "button-group-0">
+          <button id="create-wallet-button-id" class="connect-wallet">Create Account</button>
+          <button id="cancel-wallet-button-id" class="connect-wallet">Cancel</button>
+        </div>
+      </div>
+      </div>
       <div  class ="home-content-group">
        <img class ="union" src="img/Union.png" ></img> 
         <h1 class="xm-para">XMESSENGER</h1>
         <p class ="sig-para">By CruxDecussata</p>
         <p class = "connect-para">Connect your wallet to continue.</p>
         <button id="connect-button-id" class="connect-wallet">Connect Wallet</button>
+         <button id="create-button-id" class="create-wallet">Create Wallet</button>
         </div>
       </section>
 
@@ -415,8 +441,18 @@
           <span class="bar"></span>
         </div>
       </div>
+      <div class="account-drop-down-window">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="12" fill="#CDCDCD"/>
+                </svg>
+        <p class="name-disp">username</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M11.9999 15.0537L6.34619 9.39994L7.39994 8.34619L11.9999 12.9462L16.5999 8.34619L17.6537 9.39994L11.9999 15.0537Z" fill="white"/>
+        </svg>
+        
+      </div>
     </nav>
-   
+   <!--coin list shiiiiiiit-->
    <div style = "display: none;" id = "coin-list-id" class="swapcoin-board">
     <div class="dsh-items size-mod">
       <div class="items">
@@ -441,7 +477,6 @@
       <hr class="hori">
       <div class="screen">
         <div class="items">
-          
           <div class="items-child-parent">
             <img class= "coin-img" src="img/Ellipse.png"></img>
             <div>
@@ -449,15 +484,13 @@
              <p class="small-font">ETHEREUM</p>
             </div>
           </div>
-          
            <div class="items-child-parent">
              <div>
                <p class="med-font">1.76990</p>
               <p class="small-font">0xde0b2...97bae</p>
              </div>
-           </div>
-          
-         </div>  
+           </div> 
+        </div>  
         <div class="items">
 
           <div class="items-child-parent">
@@ -530,8 +563,8 @@
            </div>
 
          </div> 
-        
       <div>
+        
     <div>
    </div>
     <!--Transcation component Area-->
