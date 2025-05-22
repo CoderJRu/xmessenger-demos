@@ -51,8 +51,12 @@ export function showProfileSettings() {
 }
 
 // Initialize profile dropdown click handler
-const accountDropdown = document.querySelector('.account-drop-down-window');
-if (accountDropdown) {
-  console.log("i was clicked")
-  accountDropdown.addEventListener('click', showProfileSettings);
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const accountDropdown = document.querySelector('.account-drop-down-window');
+  if (accountDropdown) {
+    accountDropdown.addEventListener('click', () => {
+      console.log("Profile clicked", isConnected);
+      showProfileSettings();
+    });
+  }
+});

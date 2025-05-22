@@ -1,5 +1,8 @@
 export var isConnected = false;
-export var data = [];
+export var data = {
+  username: '',
+  publicKey: ''
+};
 var phraseList = [];
 var publicKey = "";
 var privateKey = "";
