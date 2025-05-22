@@ -3,7 +3,6 @@ import { isConnected } from './connectWallet.js';
 
 const profilePopup = document.createElement('div');
 profilePopup.className = 'profile-popup';
-profilePopup.style.display = 'none';
 document.body.appendChild(profilePopup);
 
 export function showProfileSettings() {
@@ -12,32 +11,47 @@ export function showProfileSettings() {
     return;
   }
 
-  const userData = window.userData || { username: 'Not Set', publicKey: 'Not Connected' };
+  const userData = window.userData || { 
+    username: 'Not Set', 
+    publicKey: 'Not Connected',
+    profileImage: 'img/person-img.png'
+  };
   
   profilePopup.innerHTML = `
     <div class="profile-content">
       <div class="profile-header">
         <h3>Profile Settings</h3>
-        <button class="close-profile">&times;</button>
+        <span class="close-profile">&times;</span>
       </div>
       <div class="profile-details">
-        <p><strong>Username:</strong> ${userData.username}</p>
-        <p class="address"><strong>Public Address:</strong> ${userData.publicKey}</p>
+        <div class="profile-image-container">
+          <img src="${userData.profileImage}" alt="Profile" class="profile-image">
+        </div>
+        <div class="profile-info">
+          <p><strong>Username:</strong> ${userData.username}</p>
+          <p class="address"><strong>Public Key:</strong> ${userData.publicKey}</p>
+        </div>
       </div>
     </div>
   `;
   
-  profilePopup.style.display = 'block';
+  profilePopup.style.display = 'flex';
   
   const closeButton = profilePopup.querySelector('.close-profile');
-  closeButton.onclick = () => {
+  closeButton.addEventListener('click', () => {
     profilePopup.style.display = 'none';
-  };
+  });
+
+  // Close on outside click
+  profilePopup.addEventListener('click', (event) => {
+    if (event.target === profilePopup) {
+      profilePopup.style.display = 'none';
+    }
+  });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const accountDropdown = document.querySelector('.account-drop-down-window');
-  if (accountDropdown) {
-    accountDropdown.addEventListener('click', showProfileSettings);
-  }
-});
+// Initialize profile dropdown click handler
+const accountDropdown = document.querySelector('.account-drop-down-window');
+if (accountDropdown) {
+  accountDropdown.addEventListener('click', showProfileSettings);
+}
