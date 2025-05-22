@@ -3,8 +3,8 @@ var data = [];
 var phraseList = [];
 var publicKey = "";
 var privateKey = "";
-import { showLoading, hideLoading } from './loading.js';
-
+import { showLoading, hideLoading } from "./loading.js";
+showLoading();
 document
   .getElementById("connect-button-id")
   .addEventListener("click", async () => {
@@ -21,6 +21,7 @@ document
   .addEventListener("click", async () => {
     document.getElementById("grey-background-id").removeAttribute("hidden");
     //
+    showLoading();
     var bodyJson = {
       pass: "00000",
     };
@@ -34,6 +35,7 @@ document
     var results = await response.json();
 
     if (results._res == "error") {
+      hideLoading();
       return;
     } else {
       var yourMnemonics = results._res._mnemonics;
@@ -49,6 +51,7 @@ document
         });
       }
     }
+    hideLoading();
   });
 
 document
@@ -66,6 +69,7 @@ document
         privateKey: privateKey,
       },
     };
+    showLoading();
     const response = await fetch("/ceaateAccount", {
       method: "POST",
       headers: {
@@ -87,4 +91,6 @@ document
       data = results.data;
       console.log(data);
     }
+    hideLoading();
   });
+hideLoading();
