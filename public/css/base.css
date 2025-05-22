@@ -1197,6 +1197,56 @@ z-index: 1;
   display:none;
   }
   html{
+
+.profile-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.profile-content {
+  background: #1E1E1E;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 300px;
+  border: 1px solid var(--Border-Primary, #FFF);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-header h3 {
+  color: var(--Text-Primary, var(--White, #FFF));
+  margin: 0;
+}
+
+.close-profile {
+  background: transparent;
+  border: none;
+  color: var(--Text-Primary, var(--White, #FFF));
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.profile-details {
+  color: var(--Text-Primary, var(--White, #FFF));
+}
+
+.profile-details p {
+  margin: 10px 0;
+}
+
     background-color: rgba(14, 16, 19, 0.99);
     /*
     filter:blur(8px);
