@@ -1217,9 +1217,14 @@ z-index: 1;
   padding: 24px;
   border-radius: 20px;
   min-width: 320px;
+  max-width: 90%;
+  position: relative;
+  margin: auto;
   border: 1px solid var(--Border-Primary, #FFF);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 100;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .profile-image-container {
