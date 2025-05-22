@@ -22,7 +22,7 @@ export function showProfileSettings() {
       </div>
       <div class="profile-details">
         <p><strong>Username:</strong> ${userData.username}</p>
-        <p><strong>Public Address:</strong> ${userData.publicKey}</p>
+        <p class="address"><strong>Public Address:</strong> ${userData.publicKey}</p>
       </div>
     </div>
   `;
@@ -35,5 +35,9 @@ export function showProfileSettings() {
   };
 }
 
-// Add click handler to account dropdown
-document.querySelector('.account-drop-down-window').addEventListener('click', showProfileSettings);
+document.addEventListener('DOMContentLoaded', () => {
+  const accountDropdown = document.querySelector('.account-drop-down-window');
+  if (accountDropdown) {
+    accountDropdown.addEventListener('click', showProfileSettings);
+  }
+});
