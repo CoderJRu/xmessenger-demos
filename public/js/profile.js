@@ -1,11 +1,12 @@
 
-import { isConnected, data } from './connectWallet.js';
+import { isConnected } from './connectWallet.js';
 
 const profilePopup = document.createElement('div');
 profilePopup.className = 'profile-popup';
 document.body.appendChild(profilePopup);
 
 export function showProfileSettings() {
+  console.log("Showing profile settings, connected:", isConnected);
   if (!isConnected) {
     alert("Please connect your wallet to view profile settings");
     return;

@@ -3,6 +3,11 @@ export var data = {
   username: '',
   publicKey: ''
 };
+
+export function updateUserData(username, publicKey) {
+  data.username = username;
+  data.publicKey = publicKey;
+}
 var phraseList = [];
 var publicKey = "";
 var privateKey = "";
