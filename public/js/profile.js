@@ -1,5 +1,5 @@
 
-import { isConnected } from './connectWallet.js';
+import { isConnected, data } from './connectWallet.js';
 
 const profilePopup = document.createElement('div');
 profilePopup.className = 'profile-popup';
