@@ -1,5 +1,5 @@
 
-import { isConnected } from './connectWallet.js';
+import { isConnected, data } from './connectWallet.js';
 
 const profilePopup = document.createElement('div');
 profilePopup.className = 'profile-popup';
@@ -11,9 +11,9 @@ export function showProfileSettings() {
     return;
   }
 
-  const userData = window.userData || { 
-    username: 'Not Set', 
-    publicKey: 'Not Connected',
+  const profileData = {
+    username: data.username || 'Not Set',
+    publicKey: data.publicKey || 'Not Connected',
     profileImage: 'img/person-img.png'
   };
   
@@ -25,11 +25,11 @@ export function showProfileSettings() {
       </div>
       <div class="profile-details">
         <div class="profile-image-container">
-          <img src="${userData.profileImage}" alt="Profile" class="profile-image">
+          <img src="${profileData.profileImage}" alt="Profile" class="profile-image">
         </div>
         <div class="profile-info">
-          <p><strong>Username:</strong> ${userData.username}</p>
-          <p class="address"><strong>Public Key:</strong> ${userData.publicKey}</p>
+          <p><strong>Username:</strong> ${profileData.username}</p>
+          <p class="address"><strong>Public Key:</strong> ${profileData.publicKey}</p>
         </div>
       </div>
     </div>
