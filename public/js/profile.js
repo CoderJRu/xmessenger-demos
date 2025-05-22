@@ -16,7 +16,7 @@ export function showProfileSettings() {
     publicKey: data.publicKey || 'Not Connected',
     profileImage: 'img/person-img.png'
   };
-  
+  console.log("i got ere");
   profilePopup.innerHTML = `
     <div class="profile-content">
       <div class="profile-header">
