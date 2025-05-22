@@ -1,9 +1,10 @@
 
-import { isConnected } from './connectWallet.js';
+import { isConnected, data } from './connectWallet.js';
 
 const profilePopup = document.createElement('div');
 profilePopup.className = 'profile-popup';
 document.body.appendChild(profilePopup);
+
 
 function showProfileSettings() {
   console.log("Showing profile settings, connected:", isConnected);
@@ -13,8 +14,8 @@ function showProfileSettings() {
   }
 
   const profileData = {
-    username: 'Not Set',
-    publicKey: 'Not Connected',
+    username: data.username,
+    publicKey: data.publicKey,
     profileImage: 'img/person-img.png'
   };
 
