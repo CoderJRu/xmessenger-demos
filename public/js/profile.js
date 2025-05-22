@@ -1,7 +1,6 @@
 
 import { isConnected } from './connectWallet.js';
 
-// Create profile popup element
 const profilePopup = document.createElement('div');
 profilePopup.className = 'profile-popup';
 profilePopup.style.display = 'none';
@@ -28,23 +27,15 @@ export function showProfileSettings() {
     </div>
   `;
   
-  profilePopup.style.display = 'flex';
+  profilePopup.style.display = 'block';
   
   const closeButton = profilePopup.querySelector('.close-profile');
   closeButton.onclick = () => {
     profilePopup.style.display = 'none';
   };
-
-  // Close on click outside
-  profilePopup.addEventListener('click', (e) => {
-    if (e.target === profilePopup) {
-      profilePopup.style.display = 'none';
-    }
-  });
 }
 
-// Initialize after DOM loads
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const accountDropdown = document.querySelector('.account-drop-down-window');
   if (accountDropdown) {
     accountDropdown.addEventListener('click', showProfileSettings);
