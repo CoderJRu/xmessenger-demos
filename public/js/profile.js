@@ -1,11 +1,11 @@
 
-import { isConnected, data } from './connectWallet.js';
+import { isConnected } from './connectWallet.js';
 
 const profilePopup = document.createElement('div');
 profilePopup.className = 'profile-popup';
 document.body.appendChild(profilePopup);
 
-export function showProfileSettings() {
+function showProfileSettings() {
   console.log("Showing profile settings, connected:", isConnected);
   if (!isConnected) {
     alert("Please connect your wallet to view profile settings");
@@ -13,11 +13,11 @@ export function showProfileSettings() {
   }
 
   const profileData = {
-    username: data.username || 'Not Set',
-    publicKey: data.publicKey || 'Not Connected',
+    username: 'Not Set',
+    publicKey: 'Not Connected',
     profileImage: 'img/person-img.png'
   };
-  console.log("i got ere");
+
   profilePopup.innerHTML = `
     <div class="profile-content">
       <div class="profile-header">
@@ -39,11 +39,12 @@ export function showProfileSettings() {
   profilePopup.style.display = 'flex';
   
   const closeButton = profilePopup.querySelector('.close-profile');
-  closeButton.addEventListener('click', () => {
-    profilePopup.style.display = 'none';
-  });
+  if (closeButton) {
+    closeButton.addEventListener('click', () => {
+      profilePopup.style.display = 'none';
+    });
+  }
 
-  // Close on outside click
   profilePopup.addEventListener('click', (event) => {
     if (event.target === profilePopup) {
       profilePopup.style.display = 'none';
@@ -55,9 +56,6 @@ export function showProfileSettings() {
 document.addEventListener('DOMContentLoaded', () => {
   const accountDropdown = document.querySelector('.account-drop-down-window');
   if (accountDropdown) {
-    accountDropdown.addEventListener('click', () => {
-      console.log("Profile clicked", isConnected);
-      showProfileSettings();
-    });
+    accountDropdown.addEventListener('click', showProfileSettings);
   }
 });
