@@ -46,6 +46,9 @@ export const loggingMnemonics = async (mnemonics) => {
   const [_status, signature] = await identity.sign(bufferMsg);
   console.log("signature is ", _status);
   await identity.logout();
+  return {
+    status: status,
+  };
 };
 
 export const loggingPrivateKey = async (privateKey) => {

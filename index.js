@@ -1,5 +1,5 @@
 import express from "express";
-import { connectSdk } from "./demosInstance.js";
+import { connectSdk, loggingMnemonics } from "./demosInstance.js";
 const app = express();
 import cors from "cors";
 import { createClient } from "@supabase/supabase-js";
@@ -53,7 +53,7 @@ connectSdk();
 
 app.post("/generatePhrases", async (req, res) => {
   try {
-    const { _mnemonics, _status, _kepair, _publicKey,_privateKey } =
+    const { _mnemonics, _status, _kepair, _publicKey, _privateKey } =
       await generateKeypair();
     var resultsjson = { _mnemonics, _status, _kepair, _publicKey, _privateKey };
     console.log(resultsjson);
@@ -76,11 +76,28 @@ app.post("/ceaateAccount", async (req, res) => {
     var _newData = {
       id: generateID(1010101010101, 1781109012010999),
       username: _username,
+      publicKey: publicKey,
     };
     await InsertDb(_newData, publicKey);
-    res.status(200).json({ _res: "success", data: _newData});
+    res.status(200).json({ _res: "success", data: _newData });
     //await InsertDbb()
     //insert acc to db
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post("/loginPhrase", async (req, res) => {
+  try {
+    let bodyJson = req.body;
+    var _phraseList = bodyJson.PhraseList;
+    var status = await loggingMnemonics(_phraseList);
+    console.log("public is ", status.publicKey);
+    var myData = await FetchDb("user", "api", status.publicKey);
+    if(myData.length > 0){
+      var fetchedData = myData[0].data;
+       res.status(200).json({ _res: "success", data: fetchedData });
+    }
   } catch (err) {
     console.log(err);
   }
