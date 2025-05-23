@@ -1208,21 +1208,22 @@ z-index: 1;
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 99999;
+  z-index: 100000;
 }
 
 .profile-content {
   background: #333333;
   padding: 24px;
   border-radius: 20px;
-  width: 400px;
-  position: absolute;
+  width: 90%;
+  max-width: 400px;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid var(--Border-Primary, #FFF);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 10;
+  z-index: 100001;
 }
 
 .profile-image-container {
