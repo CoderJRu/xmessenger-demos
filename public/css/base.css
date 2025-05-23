@@ -1222,7 +1222,7 @@ z-index: 1;
   transform: translate(-50%, -50%);
   border: 1px solid var(--Border-Primary, #FFF);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 100;
+  z-index: 10;
 }
 
 .profile-image-container {
