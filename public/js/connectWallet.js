@@ -16,34 +16,11 @@ showLoading();
 document
   .getElementById("connect-button-id")
   .addEventListener("click", async () => {
-    document.getElementById("connect-overlay").removeAttribute("hidden");
-  });
-
-document
-  .getElementById("cancel-wallet-button-id")
-  .addEventListener("click", () => {
-    document.getElementById("connect-overlay").setAttribute("hidden", true);
-  });
-
-document
-  .getElementById("create-wallet-button-id")
-  .addEventListener("click", async () => {
     showLoading();
     try {
-      // Collect phrases and verify
-      const inputs = document.querySelectorAll('.grid-item');
-      const phrases = Array.from(inputs).map(input => input.value);
-      
-      if (phrases.some(phrase => !phrase)) {
-        alert('Please fill in all phrases');
-        return;
-      }
-      
       // Your connection logic here
-      
     } finally {
       hideLoading();
-      document.getElementById("connect-overlay").setAttribute("hidden", true);
     }
   });
 
