@@ -1143,15 +1143,32 @@ padding-top: 150px;
   grid-gap: 16px;
   padding: 16px;
   grid-template-columns: repeat(5, 1fr);
-  @media(max-width: 1268px){
-     grid-template-columns: repeat(4, 1fr);
-  }
-  @media(max-width: 900px){
-     grid-template-columns: repeat(3, 1fr);
-  }
-  @media(max-width: 768px){
-     grid-template-columns: repeat(2, 1fr);
-  }
+  margin-bottom: 20px;
+}
+
+.grid-item {
+  text-align: center;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid var(--Border-Primary, #FFF);
+  font-family: "Helvetica Neue";
+  background: transparent;
+  color: white;
+  padding: 8px;
+}
+
+.grid-item::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media(max-width: 1268px){
+  .grid{ grid-template-columns: repeat(4, 1fr); }
+}
+@media(max-width: 900px){
+  .grid{ grid-template-columns: repeat(3, 1fr); }
+}
+@media(max-width: 768px){
+  .grid{ grid-template-columns: repeat(2, 1fr); }
 }
 .account-drop-down-window{
   color: var(--Text-Primary, var(--White, #FFF));
