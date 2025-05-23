@@ -1275,7 +1275,10 @@ z-index: 1;
   font-weight: bold;
   height: auto;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: all 0.3s ease;
+  border: 1px solid #FFF;
+  border-radius: 8px;
+  padding: 8px;
 }
 
 .phrase-para:hover {
