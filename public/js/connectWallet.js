@@ -13,16 +13,12 @@ var publicKey = "";
 var privateKey = "";
 import { showLoading, hideLoading } from "./loading.js";
 showLoading();
-document.addEventListener('DOMContentLoaded', () => {
-  document
-    .getElementById("connect-button-id")
-    .addEventListener("click", () => {
-      const overlay = document.getElementById('connect-wallet-overlay');
-      if (overlay) {
-        overlay.style.display = 'flex';
-      }
-    });
-});
+document
+  .getElementById("connect-button-id")
+  .addEventListener("click", async () => {
+    const overlay = document.getElementById('connect-wallet-overlay');
+    overlay.style.display = 'flex';
+  });
 
 document
   .getElementById("close-wallet-btn")
