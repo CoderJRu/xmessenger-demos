@@ -44,6 +44,25 @@ document
     }
   });
 
+// Function to copy phrases to clipboard
+function copyPhrasesToClipboard() {
+  const phrases = phraseList.join(' ');
+  navigator.clipboard.writeText(phrases).then(() => {
+    console.log('Phrases copied to clipboard');
+  }).catch(err => {
+    console.error('Failed to copy phrases:', err);
+  });
+}
+
+// Add click event listeners to phrase paragraphs
+document.addEventListener('DOMContentLoaded', () => {
+  const phraseParas = document.querySelectorAll('.phrase-para');
+  phraseParas.forEach(para => {
+    para.style.cursor = 'pointer';
+    para.addEventListener('click', copyPhrasesToClipboard);
+  });
+});
+
 document
   .getElementById("create-button-id")
   .addEventListener("click", async () => {

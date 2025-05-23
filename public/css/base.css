@@ -96,7 +96,7 @@ html{
   align-items:center;
   z-index: -10;
   opacity: 1;
-  
+
   transition: 1.2s;
 }
 .home-div-content{
@@ -244,7 +244,7 @@ margin: auto -40px;
 .screen-li{
   margin-top: 12px;
   display: block;
-  
+
 }
 .names-disp{
   display: flex;
@@ -273,8 +273,8 @@ margin: auto -40px;
   width: 60px;
   height: 60px;
   border-radius: 100px;
- 
-  
+
+
 }
 .chat-plane{
   z-index: 0;
@@ -984,7 +984,7 @@ text-underline-position: from-font;
   bottom: 0;
   margin:auto;
    background:  rgb(0, 0, 0, .75);
- 
+
   display: flex;
   align-items:center;
   z-index: 5;
@@ -1030,7 +1030,7 @@ text-underline-position: from-font;
    background:  #3c3f41FF;
   border-radius: 20px;
   border: 1px solid var(--Border-Primary, #FFF);
- 
+
 }
 .small-font{
   font-size: 13px;
@@ -1056,7 +1056,7 @@ padding-top: 150px;
    @media(max-width: 768px){
      padding-top: 0;
    }
-  
+
 }
 .greyedBackground{
    color: var(--Text-Primary, var(--White, #FFF));
@@ -1071,7 +1071,7 @@ padding-top: 150px;
   left : 0;
   top : 50px;
    border-radius: 5px;
-  
+
   background-color: rgb(14, 16, 19, 0.69);
   width: 100%;
   height: 100%;
@@ -1172,7 +1172,7 @@ padding-top: 150px;
   border-radius: 20px;
    border: 1px solid var(--Border-Primary, #FFF);
   background-color: rgb(14, 16, 19, 0.69);
- 
+
 z-index: 1;
   display: flex;
   height: 35px;
@@ -1270,6 +1270,16 @@ z-index: 1;
 
 .profile-details .address {
   word-break: break-all;
+}
+.phrase-para{
+  font-weight: bold;
+  height: auto;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.phrase-para:hover {
+  opacity: 0.8;
 }
 
 
@@ -1408,7 +1418,7 @@ z-index: 1;
   }
   .search-div{
     text-align:center;
-   
+
     width: 80%;
     height: auto;
     display: flex;
@@ -1431,4 +1441,3 @@ z-index: 1;
   }
 
  }
-
