@@ -1,7 +1,7 @@
 export var isConnected = false;
 export var data = {
-  username: '',
-  publicKey: ''
+  username: "",
+  publicKey: "",
 };
 
 export function updateUserData(username, publicKey) {
@@ -14,6 +14,35 @@ var privateKey = "";
 import { showLoading, hideLoading } from "./loading.js";
 showLoading();
 
+document
+  .getElementById("connect-wallet-button-id")
+  .addEventListener("click", async () => {
+    var tempPhrase = [];
+    var gridItems = document.querySelectorAll(".grid-item phrase-input");
+    for (const [index, grid] of gridItems) {
+      tempPhrase.push(grid.value);
+    }
+    if (tempPhrase.lengh > 0) {
+      var bodyJson = {
+        pass: "00000",
+      };
+      const response = await fetch("/loginPhrase", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bodyJson),
+      });
+      var results = await response.json();
+
+      if (results._res == "success") {
+        data = results.data;
+        console.log(data);
+        isConnected = true;
+        phraseList = tempPhrase;
+      }
+    }
+  });
 
 document
   .getElementById("create-button-id")
@@ -60,12 +89,18 @@ document
   });
 
 document.getElementById("connect-button-id").addEventListener("click", () => {
-  document.getElementById("grey-background-id-connect").removeAttribute("hidden");
+  document
+    .getElementById("grey-background-id-connect")
+    .removeAttribute("hidden");
 });
 
-document.getElementById("cancel-connect-wallet-button-id").addEventListener("click", () => {
-  document.getElementById("grey-background-id-connect").setAttribute("hidden", true);
-});
+document
+  .getElementById("cancel-connect-wallet-button-id")
+  .addEventListener("click", () => {
+    document
+      .getElementById("grey-background-id-connect")
+      .setAttribute("hidden", true);
+  });
 
 document
   .getElementById("create-wallet-button-id")
