@@ -59,6 +59,14 @@ document
     document.getElementById("grey-background-id").setAttribute("hidden", true);
   });
 
+document.getElementById("connect-button-id").addEventListener("click", () => {
+  document.getElementById("grey-background-id-connect").removeAttribute("hidden");
+});
+
+document.getElementById("cancel-connect-wallet-button-id").addEventListener("click", () => {
+  document.getElementById("grey-background-id-connect").setAttribute("hidden", true);
+});
+
 document
   .getElementById("create-wallet-button-id")
   .addEventListener("click", async () => {
