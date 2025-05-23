@@ -1096,36 +1096,39 @@ padding-top: 150px;
   overflow-y: auto;
   overflow-x: hidden;
 }
-.phrase-div{
+.phrase-div {
   margin: 50px auto;
-  width: 50%;
-  text-align:center;
-  height: auto;
+  width: 80%;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
 }
-.phrase-para{
-  font-weight: bold;
-  height: auto;
-}
-.grid-item{
-   text-align: center;
-  width: 100px;
-  height: 50px;
+
+.phrase-input {
+  width: 100%;
+  height: 300px;
+  padding: 20px;
   border-radius: 10px;
-   border: 1px solid var(--Border-Primary, #FFF);
-   font-family: "Helvetica Neue";
+  border: 1px solid var(--Border-Primary, #FFF);
+  background: transparent;
+  color: var(--Text-Primary, #FFF);
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+  resize: none;
+  line-height: 1.5;
 }
-.grid-item:active{
-   text-align: center;
-  width: 100px;
-  height: 50px;
-  border-radius: 10px;
-   border: 1px solid var(--Border-Primary, #943838);
-   font-family: "Helvetica Neue";
+
+.phrase-input:focus {
+  outline: none;
+  border-color: var(--Border-Primary, #FFF);
+}
+
+@media (max-width: 768px) {
+  .phrase-div {
+    width: 90%;
+  }
 }
 .mid-para{
   color: var(--Text-Primary, var(--White, #FFF));
